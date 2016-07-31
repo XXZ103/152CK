@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void main()
+{
+	printf("        |---------------------------------------------------------------|\n");
+    printf("        |                    欢迎来到剪刀石头布人机大战                 |\n");
+    printf("        |                    准备好了么，开始吧！！！                   |\n");
+    printf("        |---------------------------------------------------------------|\n");
+   	int i,draw=0,win=0,lose=0,sum=0;
+
+	for(i=1;i<=7;i++)
+	{
+	int m,sel;	
+	int n;
+srand((unsigned)time(NULL));
+    n=rand()%(2-0+1)+1;
+	
+	printf("输入1开始游戏\n");
+scanf("%d",&m);
+
+
+printf("请输入1,2,3。           1代表石头，2代表剪刀，3代表布   \n");
+scanf("%d",&sel);
+switch(sel)
+{
+		
+case 1:
+
+	if(n<=1) {
+		printf("你出石头，电脑出石头，平局\n");
+	draw=draw+1;	break;}
+	else if(n>1&&n<=2) {
+		printf("你出石头，电脑出剪刀，你赢\n");
+	win=win+1;	break;}
+	else {
+		printf("你出石头，电脑出布，你输\n");
+	lose=lose+1;	break;}
+case 2:
+
+	if(n<=1){
+       printf("你出剪刀，电脑出石头，你输\n");
+	  lose=lose+1;break;}
+	else if(n>1&&n<=2){
+		printf("你出剪刀，电脑出剪刀，平局\n");
+	draw=draw+1;break;}
+
+	else{
+		printf("你出剪刀，电脑出布，你赢\n");
+	win=win+1;break;}
+case 3:
+
+	if(n<=1){
+		printf("你出布，电脑出石头，你赢\n");
+	win=win+1;break;}
+	else if(n>1&&n<=2){
+		printf("你出布，电脑出剪刀，你输\n");
+	lose=lose+1;break;}
+	else{
+		printf("你出布，电脑出布，平局\n");
+		draw=draw+1;break;}
+default:
+	printf("输入错误\n");break;
+
+}
+		
+
+	}
+	printf("比赛结束\n");
+if(win==lose)
+{
+printf("双方打成平手");
+}
+else if(win>lose)
+{
+printf("您取得了胜利");
+}
+else if(win<lose)
+{
+printf("很遗憾你输了"); 
+}
+	sum=win+lose+draw;
+printf("                            +++++++++++++++++++++++\n");
+printf("                            +  win=%d              +\n",win);
+printf("                            +  lose=%d             +\n",lose);
+printf("                            +  draw=%d             +\n",draw);
+printf("                            +  你玩了%d盘          +\n",sum);
+printf("                            +++++++++++++++++++++++\n");
+printf("                            Game Over  你个辣鸡\n"); 
+}
+
